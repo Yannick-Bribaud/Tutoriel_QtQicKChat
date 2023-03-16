@@ -5,6 +5,7 @@ import net.alefbet 1.0
 Window {
     width: 400
     height: 800
+
     visible: true
 
     //Ceci est une vue qui comporte plusieurs onglets
@@ -18,36 +19,35 @@ Window {
             bottom: parent.bottom
             left: parent.left
         }
-       currentIndex: tabBar.currentIndex
+        //On synchronise l'onglet affiché avec l'objet TabBar
+        currentIndex: tabBar.currentIndex
 
-       Chat {}
-       Participants {}
+        Chat {}
+        Participants {}
     }
 
     //Nous créons un groupe d'onglet
-    TabBar{
+    TabBar {
         id: tabBar
-        anchors{
+        anchors {
             left: parent.left
             right: parent.right
         }
-       currentIndex: swipeView.currentIndex
+        //On synchronise l'onglet activé avec l'objet Swipe
+        currentIndex: swipeView.currentIndex
 
-       TabButton {
-           text: qsTr("Chat")
-       }
-
-       TabButton{
-           text: qsTr("Participants")
-       }
-
+        TabButton {
+            text: qsTr("Chat")
+        }
+        TabButton {
+            text: qsTr("Participants")
+        }
     }
 
-    Component.onCompleted:{
+    Component.onCompleted: {
         //on démarre le contrôleur réseau pour ouvrir
         //une session de chat et recevoir des messages
-        ControleurReseau.demarre();
+        ControleurReseau.demarre()
     }
-
 
 }

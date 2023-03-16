@@ -1,4 +1,4 @@
-QT += quick
+QT += quick network
 
 SOURCES += \
         ControleurReseau.cpp \
@@ -7,7 +7,7 @@ SOURCES += \
         MessageFactory.cpp \
         main.cpp
 
-resources.files = main.qml 
+resources.files = App.qml Chat.qml Participants.qml EcranChat.ui.qml EcranParticipants.ui.qml qtquickcontrols2.conf
 resources.prefix = /$${TARGET}
 RESOURCES += resources
 
@@ -23,7 +23,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    ControleurReseau \
+    ControleurReseau.h \
     JsonHelper.h \
     Message.h \
     MessageFactory.h
+
+DISTFILES += \
+    App.qml \
+    Chat.qml \
+    EcranChat.ui.qml \
+    EcranParticipants.ui.qml \
+    Participants.qml \
+    qtquickcontrols2.conf
+
+FORMS +=
