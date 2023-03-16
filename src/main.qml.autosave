@@ -28,7 +28,8 @@ Window {
     TabBar{
         id: tabBar
         anchors{
-            left: 
+            left: parent.left
+            right: parent.right
         }
     }
 
