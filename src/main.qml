@@ -27,6 +27,27 @@ Window {
     //Nous créons un groupe d'onglet
     TabBar{
         id: tabBar
+        anchors{
+            left: parent.left
+            right: parent.right
+        }
+       currentIndex: swipeView.currentIndex
+
+       TabButton {
+           text: qsTr("Chat")
+       }
+
+       TabButton{
+           text: qsTr("Participants")
+       }
+
     }
+
+    Component.onCompleted:{
+        //on démarre le contrôleur réseau pour ouvrir
+        //une session de chat et recevoir des messages
+        ControleurReseau.demarre();
+    }
+
 
 }

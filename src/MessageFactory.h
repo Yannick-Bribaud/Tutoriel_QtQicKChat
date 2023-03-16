@@ -1,11 +1,15 @@
 #ifndef MESSAGEFACTORY_H
 #define MESSAGEFACTORY_H
 
+class QByteArray;
+class Message;
 
-class MessageFactory
-{
+class MessageFactory {
 public:
-    MessageFactory();
+    static Message creeMessage(const QByteArray& données);
+
+private:
+    MessageFactory() {}
 };
 
 #endif // MESSAGEFACTORY_H
