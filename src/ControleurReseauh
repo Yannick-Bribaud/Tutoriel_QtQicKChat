@@ -1,0 +1,13 @@
+#ifndef CONTROLEURRESEAU
+#define CONTROLEURRESEAU
+
+#include <QObject>
+
+class ControleurReseau : public QObject
+{
+     Q_OBJECT
+public:
+    ControleurReseau();
+};
+
+#endif // CONTROLEURRESEAU
