@@ -16,6 +16,20 @@ int main(int argc, char *argv[])
     ControleurReseau controleurReseau;
     qmlRegisterSingletonInstance("net.alefbet", 1, 0, "ControleurReseau", &controleurReseau);
 
+    //On instancie le traducteur
+    QTranslator translator;
+    //On récupère la langue courante du système
+    QString langue = QLocale::system().name().split("_")[0];
+    qDebug() << "chargement de la langue" << langue;
+
+    //On charge le fichier de langue correspondant à la langue du système
+    if(!translator.load(QString(":/%1.qm").arg(langue))) {
+        qWarning() << "Les traductions n'ont pas été chargées";
+
+    }else{
+        //On installe les nouvelles traductions
+        app.installTranslator(&translator);
+    }
     QQmlApplicationEngine engine;
     const QUrl url(u"qrc:/src/App.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

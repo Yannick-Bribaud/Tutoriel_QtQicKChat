@@ -7,7 +7,7 @@ SOURCES += \
         MessageFactory.cpp \
         main.cpp
 
-resources.files = App.qml Chat.qml Participants.qml EcranChat.ui.qml EcranParticipants.ui.qml qtquickcontrols2.conf
+resources.files = App.qml Chat.qml Participants.qml EcranChat.ui.qml EcranParticipants.ui.qml qtquickcontrols2.conf en.qm
 resources.prefix = /$${TARGET}
 RESOURCES += resources
 
@@ -34,6 +34,14 @@ DISTFILES += \
     EcranChat.ui.qml \
     EcranParticipants.ui.qml \
     Participants.qml \
+    en.qm \
+    en.ts \
     qtquickcontrols2.conf
 
 FORMS +=
+
+
+
+
+
+TRANSLATIONS += en.ts
